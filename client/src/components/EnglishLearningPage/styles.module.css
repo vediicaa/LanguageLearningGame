@@ -1,3 +1,11 @@
+.mainContainer{
+  display: flex;
+  /* height: 75vh; */
+  height: 75vh;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
 .questionBox {
   border: 2px solid #1abc9c;
   padding: 20px;
@@ -6,15 +14,38 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  width: 45%;
+  overflow: auto;
+  
 }
-
+.quesText{
+  font-size: 1.7rem;
+  margin-bottom: 3rem;
+}
+.heading{
+  font-size: 2rem;
+  margin: 0;
+}
 .optionTable {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap:0.5rem;
+  column-gap: 0;
+  justify-items: center;
   width: 100%;
 }
+/* .optionTable > div:nth-child(2n + 1) {grid-column: 1}
+.optionTable > div:nth-child(2n + 2) {grid-column: 2} */
+
 
 .optionButton {
+  /* min-width: 35%; */
+  width: 80%;
+  min-height: 3rem;
+  font-size: 1.2rem;
   background-color: #3498db;
   color: white;
   padding: 10px 20px;
@@ -23,6 +54,7 @@
   border-radius: 5px;
   margin: 5px;
   transition: background-color 0.3s;
+ 
 }
 
 .optionButton:hover {
@@ -39,4 +71,20 @@
 .wrongOption {
   background-color: #f8d7da; /* Red color for wrong option */
   /* Add any other specific styles for a wrong option */
+}
+.score{
+  margin-top: 2rem;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.score p{
+  font-weight: bold;
+}
+
+.ratingChange{
+  font-size: 1.2rem;
+  font-style: italic;
 }

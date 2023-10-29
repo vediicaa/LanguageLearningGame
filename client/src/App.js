@@ -55,7 +55,7 @@ function App() {
 				path="/LeaderBoard"
 				element={user ? <LeaderBoard/> : <Navigate  to="../login" />}
 			/>
-			<Route path="/" element={<Navigate replace to="/login" />} />
+			
 			
 			
 			
