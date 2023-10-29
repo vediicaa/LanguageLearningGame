@@ -68,7 +68,7 @@ function Dashboard() {
           <p className={styles.langItem}>Spanish Rating: {userInfo.ratingSpanish}</p>
           <p className={styles.langItem}>German Rating: {userInfo.ratingGerman}</p>
         </div>
-        <button onClick={handleResetRatings(userInfo._id)} className={styles.resetButton}>
+        <button  className={styles.resetButton}>
           Reset Ratings
         </button>
       </div>
