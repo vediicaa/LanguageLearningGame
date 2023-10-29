@@ -11,8 +11,9 @@ const handleLogout = () => {
 function Navbar() {
     return (
       <nav className={styles.navbar}> {/* Apply the navbar class from the module */}
+        <span className={styles.companyName}>LearnByFun</span>
         <ul className={styles.navList}> {
-        <span className={styles.companyName}>Your Company Name</span>/* Apply the navList class from the module */}
+        }
           <li className={styles.navItem} > {/* Apply the navItem class from the module */}
             <Link to="/dashboard">
               <i className={styles.navItem} aria-hidden="true"></i> Dashboard

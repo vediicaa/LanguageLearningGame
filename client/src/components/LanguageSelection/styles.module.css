@@ -1,23 +1,43 @@
+.mainContainer{
+
+  display: flex;
+  /* height: 75vh; */
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+}
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 40%;
+    margin: 2rem 25%;
+    padding: 30px;
     background-color: #f4f4f4;
     border: 1px solid #ccc;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
   }
   
   h1 {
     text-align: center;
+    font-size: 2.5rem;
   }
   
   .languageList {
     list-style: none;
     padding: 0;
+
   }
   
   .languageItem {
     margin: 10px 0;
+    font-size: 1.5rem;
+    margin: 1rem;
+    border-bottom: 1px solid black;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, #00C853, #B2FF59);
   }
   
   label {
@@ -27,20 +47,30 @@
   
   input[type="radio"] {
     margin-right: 10px;
+    
+  }
+  input[type='radio']:checked:after{
+    background-color: aquamarine;
   }
   
   .startButton {
     display: block;
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 50%;
+    max-width: 300px;
     text-align: center;
     background-color: #007bff;
     color: #fff;
-    padding: 10px;
+    padding: 17px;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 15px;
   }
   
   .startButton:hover {
     background-color: #0056b3;
+    cursor: pointer;
   }
   

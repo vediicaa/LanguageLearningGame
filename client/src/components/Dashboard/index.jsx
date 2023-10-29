@@ -50,25 +50,31 @@ function Dashboard() {
 
   return (
     <div>
-        <Navbar/>
-    <div className={styles.container}>
-      <h1 className={styles.heading}>Welcome to the Dashboard</h1>
-      <div className={styles.userDetails} >
-        <p>First Name: {userInfo.firstName}</p>
-        <p>Last Name: {userInfo.lastName}</p>
-        <p>Email: {userInfo.email}</p>
-        </div>
+    <Navbar />
+    <div class={styles.mainContainer}>
+      <div className={styles.container}>
+        <h1 className={styles.heading}>
+          Welcome {userInfo?.firstName + " " + userInfo?.lastName}
+        </h1>
+        {/* <div className={styles.userDetails}>
+          <p>First Name: {userInfo.firstName}</p>
+          <p>Last Name: {userInfo.lastName}</p>
+          <p>Email: {userInfo.email}</p>
+        </div> */}
         <div className={styles.languageDetails}>
-        <p>User's rating in English: {userInfo.ratingEng}</p>
-        <p>User's rating in French: {userInfo.ratingFrench}</p>
-        <p>User's rating in Italian: {userInfo.ratingItalian}</p>
-        <p>User's rating in Spanish: {userInfo.ratingSpanish}</p>
-        <p>User's rating in German: {userInfo.ratingGerman}</p>
+          <p className={styles.langItem}>English Rating: {userInfo.ratingEng}</p>
+          <p className={styles.langItem}>French Rating: {userInfo.ratingFrench}</p>
+          <p className={styles.langItem}>Italian Rating: {userInfo.ratingItalian}</p>
+          <p className={styles.langItem}>Spanish Rating: {userInfo.ratingSpanish}</p>
+          <p className={styles.langItem}>German Rating: {userInfo.ratingGerman}</p>
         </div>
-      <button onClick={handleResetRatings} className={styles.resetButton}>Reset Ratings</button>
+        <button onClick={handleResetRatings} className={styles.resetButton}>
+          Reset Ratings
+        </button>
+      </div>
     </div>
-    <Footer/>
-    </div>
+    <Footer />
+  </div>
   );
 }
 

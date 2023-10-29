@@ -49,10 +49,11 @@ function LanguageSelection() {
   }
   return (
     <div>
-      <Navbar/>
-    
+    <Navbar/>
+  
+  <div class={styles.mainContainer}>
     <div className={styles.container}>
-      <h1>Select a Language to Learn</h1>
+      <h1>Select a Language</h1>
       <ul className={styles.languageList}>
         {languages.map((language) => (
           <li key={language} className={styles.languageItem}>
@@ -73,8 +74,9 @@ function LanguageSelection() {
         Start Learning
       </button>
     </div>
-    <Footer/>
-    </div>
+  </div>
+  <Footer/>
+  </div>
   );
 }
 
