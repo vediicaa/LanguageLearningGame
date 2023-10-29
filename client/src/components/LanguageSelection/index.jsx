@@ -11,7 +11,7 @@ function LanguageSelection() {
 
   useEffect(() => {
     // Make an API request to fetch the list of available languages from the server
-    axios.get('https://trial3-iota.vercel.app/api/language') // Adjust the API endpoint URL
+    axios.get('https://trial3-production.up.railway.app/api/language') // Adjust the API endpoint URL
       .then((response) => {
         console.log("received languages");
       setLanguages(response.data);

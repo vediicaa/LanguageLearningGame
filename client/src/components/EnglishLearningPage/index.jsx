@@ -24,7 +24,7 @@ function LearnEnglishPage() {
   useEffect(() => {
     //fetching user's current rating email and unique id
     axios
-      .get("https://trial3-iota.vercel.app/api/auth", {
+      .get("https://trial3-production.up.railway.app/api/auth", {
         headers: {
           Authorization: `Bearer ${storedToken}`,
         },
@@ -45,7 +45,7 @@ function LearnEnglishPage() {
   const updateRating = (newRating) => {
     // Make an API call to update the user's rating
     axios
-      .put("https://trial3-iota.vercel.app/api/ratingEng", { userEmail, newRating })
+      .put("https://trial3-production.up.railway.app/api/ratingEng", { userEmail, newRating })
       .then((response) => {
         console.log("User rating updated successfully");
       })
@@ -56,7 +56,7 @@ function LearnEnglishPage() {
 
   const fetchQuestion = (userId, rating) => {
     axios
-      .get(`https://trial3-iota.vercel.app/api/questions/${userId}/${rating}`)
+      .get(`https://trial3-production.up.railway.app/api/questions/${userId}/${rating}`)
       .then((response) => {
         const questionData = response.data.question;
         setQuestion(questionData);

@@ -15,7 +15,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://trial3-iota.vercel.app/api/auth";
+			const url = "https://trial3-production.up.railway.app/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 			console.log("Token stored", res.data);
