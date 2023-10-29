@@ -20,7 +20,13 @@ const morgan = require('morgan');
 // database connection
 connection();
 
-
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
+  
 // middlewares
 app.use(morgan('tiny'));
 app.use(express.json());
