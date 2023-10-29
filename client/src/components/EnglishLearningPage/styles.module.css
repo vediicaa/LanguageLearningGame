@@ -1,0 +1,42 @@
+.questionBox {
+  border: 2px solid #1abc9c;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.optionTable {
+  width: 100%;
+}
+
+.optionButton {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+.optionButton:hover {
+  background-color: #2980b9;
+}
+
+/* styles.module.css */
+
+.correctOption {
+  background-color: #d4edda; /* Green color for correct option */
+  /* Add any other specific styles for a correct option */
+}
+
+.wrongOption {
+  background-color: #f8d7da; /* Red color for wrong option */
+  /* Add any other specific styles for a wrong option */
+}

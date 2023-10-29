@@ -1,0 +1,46 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .languageList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .languageItem {
+    margin: 10px 0;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .startButton {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .startButton:hover {
+    background-color: #0056b3;
+  }
+  
