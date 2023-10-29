@@ -16,17 +16,45 @@ function App() {
 	console.log(user)
 	return (
 		<Routes>
-			{user && <Route path="/" exact element={<Main />} />}
-			<Route path="/signup" exact element={<Signup />} />
 			<Route path="/login" exact element={<Login />} />
-			<Route path="/language" element={<LanguageSelection />} />
-			<Route path="/english" element={<EnglishLearningPage />} />
-			<Route path="/spanish" element={<SpanishLearningPage />} />
-			<Route path="/french" element={<FrenchLearningPage />} />
-			<Route path="/german" element={<GermanLearningPage />} />
-			<Route path="/italian" element={<ItalianLearningPage />} />
-			<Route path="/dashboard" element={<Dashboard />} />
+			<Route path="/signup" exact element={<Signup />} />
+			<Route
+				path="/language"
+				element={user ? <LanguageSelection/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english"
+				element={user ? <EnglishLearningPage/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/"
+				element={user ? <Main/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/spanish"
+				element={user ? <SpanishLearningPage/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/french"
+				element={user ? <FrenchLearningPage/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/german"
+				element={user ? <GermanLearningPage/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/italian"
+				element={user ? <ItalianLearningPage/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/dashboard"
+				element={user ? <Dashboard/> : <Navigate  to="../login" />}
+			/>
+			
 			<Route path="/" element={<Navigate replace to="/login" />} />
+			
+			
+			
 
 		</Routes>
 	);
