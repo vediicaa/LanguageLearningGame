@@ -10,7 +10,7 @@ const Leaderboard = () => {
 
   useEffect(() => {
     // Fetch the leaderboard data when the component mounts
-    axios.get('http://localhost:8080/api/leaderboard')
+    axios.get('https://trial3-iota.vercel.app/api/leaderboard')
       .then(response => {
         setUsers(response.data);
       })

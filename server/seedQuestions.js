@@ -1,6 +1,7 @@
 require('dotenv').config(); // Load environment variables from .env file
 const mongoose = require('mongoose');
 const Question = require('./models/questions');
+const { User } = require('./models/user');
 // Reuse your existing database connection logic or require your db.js file
 require('./db')(); // Adjust the path as needed
 
@@ -284,15 +285,23 @@ const sampleQuestions = [
       IncreaseAmount: 0,
   }
   ];
+
   
-  Question.insertMany(sampleQuestions)
-  .then(questions => {
-    console.log('Sample questions inserted into the database:', questions);
-  })
-  .catch(error => {
-    console.error('Error inserting sample questions:', error);
-  })
-  .finally(() => {
-    // Close the database connection to ensure it doesn't hang
-    mongoose.connection.close();
-  });
+  
+  
+  const userId = "653e12f99158e43a153e0f16";
+  const deleteSingleUser = async (userId) => {
+    try {
+        const deletedUser = await User.findByIdAndDelete(userId);
+        if (deletedUser) {
+            console.log('User deleted:', deletedUser);
+        } else {
+            console.log('User not found.');
+        }
+    } catch (error) {
+        console.error('Error deleting user:', error);
+    }
+};
+
+// Example usage:
+deleteSingleUser(userId);

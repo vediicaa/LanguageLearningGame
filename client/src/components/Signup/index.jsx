@@ -21,7 +21,7 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/user";
+			const url = "https://trial3-iota.vercel.app/api/user";
 			const { data: res } = await axios.post(url, data);
 			navigate("/login");
 			console.log(res.message);

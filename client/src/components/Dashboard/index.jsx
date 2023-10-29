@@ -11,7 +11,7 @@ function Dashboard() {
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/auth',{
+    axios.get('https://trial3-iota.vercel.appapi/auth',{
             headers:{
               'Authorization': `Bearer ${storedToken}`
             }
@@ -27,11 +27,11 @@ function Dashboard() {
   const handleResetRatings = (userId) => {
     // Implement logic to reset ratings
     // Make a PUT request to reset user ratings
-    axios.put(`http://localhost:8080/api/reset-ratings/${userId}`)
+    axios.put(`https://trial3-iota.vercel.app/api/reset-ratings/${userId}`)
       .then((response) => {
         console.log('Ratings reset successfully');
         // Fetch user info again after resetting ratings
-        axios.get('http://localhost:8080/api/auth',{
+        axios.get('https://trial3-iota.vercel.app/api/auth',{
             headers:{
               'Authorization': `Bearer ${storedToken}`
             }
