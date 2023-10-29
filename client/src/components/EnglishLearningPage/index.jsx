@@ -125,6 +125,7 @@ function LearnEnglishPage() {
         {question ? (
           <div>
             <p>{question.text}</p>
+
             <table className={styles.optionTable}>
               <tbody>
                 {question.options.map((option, index) => (
@@ -138,6 +139,8 @@ function LearnEnglishPage() {
                 ))}
               </tbody>
             </table>
+            <p>Increase+:  {question.IncreaseAmount}</p>
+            <p>Decrease+:  {question.decreaseAmount}</p>
           </div>
         ) : (
           <p>No question found for the user's rating.</p>

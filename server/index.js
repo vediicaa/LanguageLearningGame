@@ -13,6 +13,8 @@ const rateFrenchRoutes = require("./routes/rateFrench");
 const rateItalianRoutes = require("./routes/rateItalian");
 const rateSpanishRoutes = require("./routes/rateSpanish");
 const rateGermanRoutes = require("./routes/rateGerman");
+const resetRoutes = require("./routes/reset-ratings");
+const leaderBoardRoutes = require("./routes/leaderboard");
 const morgan = require('morgan');
 
 // database connection
@@ -33,7 +35,9 @@ app.use("/api/ratingEng", rateEngRoutes);
 app.use("/api/ratingFrench", rateFrenchRoutes);
 app.use("/api/ratingGerman", rateGermanRoutes);
 app.use("/api/ratingSpanish", rateSpanishRoutes);
-app.use("/api/ratingItlalian", rateItalianRoutes);
+app.use("/api/ratingItalian", rateItalianRoutes);
+app.use("/api/reset-ratings", resetRoutes);
+app.use("/api/leaderboard", leaderBoardRoutes);
 
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));

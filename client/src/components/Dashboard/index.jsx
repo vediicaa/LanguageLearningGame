@@ -24,10 +24,10 @@ function Dashboard() {
       });
   }, []);
 
-  const handleResetRatings = () => {
+  const handleResetRatings = (userId) => {
     // Implement logic to reset ratings
     // Make a PUT request to reset user ratings
-    axios.put('http://localhost:8080/api/reset-ratings')
+    axios.put(`http://localhost:8080/api/reset-ratings/${userId}`)
       .then((response) => {
         console.log('Ratings reset successfully');
         // Fetch user info again after resetting ratings
@@ -68,7 +68,7 @@ function Dashboard() {
           <p className={styles.langItem}>Spanish Rating: {userInfo.ratingSpanish}</p>
           <p className={styles.langItem}>German Rating: {userInfo.ratingGerman}</p>
         </div>
-        <button onClick={handleResetRatings} className={styles.resetButton}>
+        <button onClick={handleResetRatings(userInfo._id)} className={styles.resetButton}>
           Reset Ratings
         </button>
       </div>

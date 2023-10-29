@@ -10,6 +10,7 @@ import FrenchLearningPage from "./components/FrenchLearningPage";
 import GermanLearningPage from "./components/GermanLearningPage";
 import ItalianLearningPage from "./components/ItalianLearningPage";
 import Dashboard from "./components/Dashboard";
+import LeaderBoard from "./components/LeaderBoard";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -50,7 +51,10 @@ function App() {
 				path="/dashboard"
 				element={user ? <Dashboard/> : <Navigate  to="../login" />}
 			/>
-			
+			<Route
+				path="/LeaderBoard"
+				element={user ? <LeaderBoard/> : <Navigate  to="../login" />}
+			/>
 			<Route path="/" element={<Navigate replace to="/login" />} />
 			
 			

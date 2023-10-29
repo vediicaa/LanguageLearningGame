@@ -14,7 +14,7 @@ router.get('/:userId/:userRating', async (req, res) => {
     const user = await User.findById(userId).populate('visited');
     const visitedQuestions= user.visited.map(question => question._id);
     // Query the database to find a question with a matching or closest rating
-    const question = await Question.findOne({ rating: { $gte: userRating }, _id: {$nin: visitedQuestions} });
+    const question = await Question.findOne({ rating: { $gte: userRating }, _id: {$nin: visitedQuestions} }).sort({rating: 1});
     if (!question) {
       return res.status(200).json({ message: 'Congratulations! All the questions have been compeleted' });
     }

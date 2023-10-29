@@ -19,6 +19,11 @@ function Navbar() {
               <i className={styles.navItem} aria-hidden="true"></i> Dashboard
             </Link>
           </li>
+          <li className={styles.navItem} > {/* Apply the navItem class from the module */}
+            <Link to="/Leaderboard">
+              <i className={styles.navItem} aria-hidden="true"></i> LeaderBoard
+            </Link>
+          </li>
           <li className={styles.navItem}> {/* Apply the navItem class from the module */}
             <Link to="/language">Home</Link>
           </li>
