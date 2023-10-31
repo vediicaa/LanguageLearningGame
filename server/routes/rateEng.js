@@ -7,9 +7,6 @@ const {User} = require('../models/user');
 router.put('/', async (req, res) => {
     console.log(req.body);
   const { userEmail, newRating } = req.body;
-  console.log(userEmail);
-  console.log(newRating);
-
   try {
     // Find the user by ID
     const user = await User.findOne({email: userEmail});
