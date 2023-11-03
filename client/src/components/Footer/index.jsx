@@ -7,7 +7,7 @@ function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <p>Created by Vedica Mishra</p>
-        <p>© 2023 IIIT Naya Raipur</p>
+        <p>© 2023 IIIT, Naya Raipur</p>
       </div>
       <div className={styles.links}>
         <a href="https://github.com/vediicaa" target='_blank'><img className={styles.footerImg} src='github.png' /></a>
