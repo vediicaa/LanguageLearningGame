@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import axios from "axios";
 
 function LearnEnglishPage() {
   const [userRating, setUserRating] = useState(1); // Initialize with the user's starting rating
   const [userId, setUserId] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
-  const [questions, setQuestions] = useState([]);
   const [token, setToken] = useState(null);
   const storedToken = localStorage.getItem("token");
   const [question, setQuestion] = useState(null);

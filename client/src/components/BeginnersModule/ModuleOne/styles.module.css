@@ -1,0 +1,28 @@
+.memoryGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer {
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.imageCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imageCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz {
+  margin-top: 20px;
+}

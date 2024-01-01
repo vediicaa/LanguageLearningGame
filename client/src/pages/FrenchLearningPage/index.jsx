@@ -5,7 +5,7 @@ function FrenchLearningPage() {
   return (
     <div>
       <h1>Learn French</h1>
-      {/* Add content for learning English */}
+      {/* Add content for learning French*/}
     </div>
   );
 }

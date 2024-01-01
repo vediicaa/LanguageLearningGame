@@ -38,5 +38,5 @@ app.use("/api/ratingItalian", rateItalianRoutes);
 app.use("/api/reset-ratings", resetRoutes);
 app.use("/api/leaderboard", leaderBoardRoutes);
 
-const port = process.env.PORT || 8080;
+const port = PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));

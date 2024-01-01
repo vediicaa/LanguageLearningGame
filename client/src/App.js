@@ -3,14 +3,20 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import LanguageSelection from "./components/LanguageSelection";
-import EnglishLearningPage from "./components/EnglishLearningPage";
-import SpanishLearningPage from "./components/SpanishLearningPage";
-import FrenchLearningPage from "./components/FrenchLearningPage";
-import GermanLearningPage from "./components/GermanLearningPage";
-import ItalianLearningPage from "./components/ItalianLearningPage";
-import Dashboard from "./components/Dashboard";
-import LeaderBoard from "./components/LeaderBoard";
+import LanguageSelection from "./pages/LanguageSelection";
+import EnglishLearningPage from "./pages/EnglishLearningPage/index.jsx";
+import Level from "./pages/EnglishLearningPage/Level.jsx";
+import Beginner from "./pages/EnglishLearningPage/Beginner.jsx";
+import ModuleoneBeginner from "./components/BeginnersModule/ModuleOne";
+import ModuletwoBeginner from "./components/BeginnersModule/ModuleTwo";
+import ModulethreeBeginner from "./components/BeginnersModule/ModuleThree";
+import ModulefourBeginner from "./components/BeginnersModule/ModuleFour";
+import SpanishLearningPage from "./pages/SpanishLearningPage";
+import FrenchLearningPage from "./pages/FrenchLearningPage";
+import GermanLearningPage from "./pages/GermanLearningPage";
+import ItalianLearningPage from "./pages/ItalianLearningPage";
+import Dashboard from "./pages/Dashboard";
+import LeaderBoard from "./pages/LeaderBoard";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -30,6 +36,30 @@ function App() {
 			<Route
 				path="/"
 				element={user ? <Main/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/beginner"
+				element={user ? <Beginner/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/level"
+				element={user ? <Level/> : <Navigate  to="../login" />}
+			/>
+						<Route
+				path="/english/beginner/moduleone"
+				element={user ? <ModuleoneBeginner/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/beginner/moduletwo"
+				element={user ? <ModuletwoBeginner/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/beginner/modulethree"
+				element={user ? <ModulethreeBeginner/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/beginner/modulefour"
+				element={user ? <ModulefourBeginner/> : <Navigate  to="../login" />}
 			/>
 			<Route
 				path="/spanish"
@@ -55,11 +85,6 @@ function App() {
 				path="/LeaderBoard"
 				element={user ? <LeaderBoard/> : <Navigate  to="../login" />}
 			/>
-			
-			
-			
-			
-
 		</Routes>
 	);
 }
