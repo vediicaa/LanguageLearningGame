@@ -1,0 +1,38 @@
+.matchingExercise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .matchingExercise h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .matchingExercise img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+  
+  .matchingExercise form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .matchingExercise input {
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .matchingExercise button {
+    font-size: 1em;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

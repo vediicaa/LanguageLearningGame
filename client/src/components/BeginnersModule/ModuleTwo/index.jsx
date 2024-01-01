@@ -1,16 +1,17 @@
 import React from "react";
 import Navbar from '../../../components/Navbar'; 
 import Footer from '../../../components/Footer'; 
-const ModuleOne = () =>{
+import Alphabet from "./Alphabet";
+const ModuleTwo = () =>{
     return (
         <div>
             <Navbar/>
-            <h1>Welcome to Module Two</h1>
-            {/* Add content for Module One*/}
+            <h1>Welcome to Module 2</h1>
+            <Alphabet/>
             <Footer/>
         </div>
         );
 };
 
-export default ModuleOne;
+export default ModuleTwo;
 

@@ -9,6 +9,7 @@ import Level from "./pages/EnglishLearningPage/Level.jsx";
 import Beginner from "./pages/EnglishLearningPage/Beginner.jsx";
 import ModuleoneBeginner from "./components/BeginnersModule/ModuleOne";
 import ModuletwoBeginner from "./components/BeginnersModule/ModuleTwo";
+import PronunciationPractice from './components/BeginnersModule/ModuleTwo/Pronounciation.jsx';
 import ModulethreeBeginner from "./components/BeginnersModule/ModuleThree";
 import ModulefourBeginner from "./components/BeginnersModule/ModuleFour";
 import SpanishLearningPage from "./pages/SpanishLearningPage";
@@ -52,6 +53,10 @@ function App() {
 			<Route
 				path="/english/beginner/moduletwo"
 				element={user ? <ModuletwoBeginner/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/beginner/moduletwo/pronounciation"
+				element={user ? <PronunciationPractice/> : <Navigate  to="../login" />}
 			/>
 			<Route
 				path="/english/beginner/modulethree"
