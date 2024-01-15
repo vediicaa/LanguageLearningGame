@@ -18,4 +18,4 @@ Similarly to start the server open a new terminal
 `cd server`
 `npm start`
 
-The project is will run on your machine!
+The project will run on your machine!
