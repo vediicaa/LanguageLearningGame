@@ -36,11 +36,11 @@ router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
 		if (error)
-			return res.status(400).send({ message: error.details[0].message });
+			return res.status(400).send({ message: error.details[0].message }); //Bad Request
 
 		const user = await User.findOne({ email: req.body.email });
 		if (!user)
-			return res.status(401).send({ message: "Invalid Email or Password" });
+			return res.status(401).send({ message: "Invalid Email or Password" }); //unauthorized
 
 		const validPassword = await bcrypt.compare(
 			req.body.password,

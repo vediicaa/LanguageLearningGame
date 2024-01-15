@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 
-const DraggableItem = ({ id, name }) => {
+const DraggableItem = ({ id, name, src }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'item',
-    item: { id },
+    item: { id, name },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -12,7 +12,7 @@ const DraggableItem = ({ id, name }) => {
 
   return (
     <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }}>
-      {name}
+      <img src={src} alt={name} />
     </div>
   );
 };

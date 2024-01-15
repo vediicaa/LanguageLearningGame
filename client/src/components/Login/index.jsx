@@ -15,10 +15,9 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://trial3-production.up.railway.app/api/auth";
+			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			console.log("Token stored", res.data);
 			window.location = "/language";
 		} catch (error) {
 			if (
@@ -73,5 +72,7 @@ const Login = () => {
 		</div>
 	);
 };
+
+
 
 export default Login;

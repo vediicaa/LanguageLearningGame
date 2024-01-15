@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+.title {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .instructions {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

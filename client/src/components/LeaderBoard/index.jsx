@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from "./styles.module.css";
 import Navbar from '../../components/Navbar'; 
 import Footer from '../../components/Footer'; 
-const storedToken = localStorage.getItem("token");
+
 
 const Leaderboard = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // Fetch the leaderboard data when the component mounts
-    axios.get('https://trial3-production.up.railway.app/api/leaderboard')
+    axios.get('https://localhost:8080/api/leaderboard')
       .then(response => {
         setUsers(response.data);
       })

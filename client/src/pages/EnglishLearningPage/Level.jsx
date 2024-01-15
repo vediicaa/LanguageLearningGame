@@ -11,7 +11,7 @@ const LevelSelection =({onSelectLevel}) =>{
     };
 
     return(
-        <div div class={styles.container}>
+        <div  class={styles.container}>
             <Navbar/>
             <h2>Select you english Proficiency Level</h2>
             <div>

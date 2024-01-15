@@ -5,7 +5,7 @@ function ItalianLearningPage() {
   return (
     <div>
       <h1>Learn Italian</h1>
-      {/* Add content for learning English */}
+      {/* Add content for learning Italian */}
     </div>
   );
 }

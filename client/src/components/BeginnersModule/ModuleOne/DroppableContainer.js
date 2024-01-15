@@ -4,7 +4,7 @@ import { useDrop } from 'react-dnd';
 const DroppableContainer = ({ accept, onDrop, children }) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept,
-    drop: onDrop,
+    drop: (item) => onDrop(item, children),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),

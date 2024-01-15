@@ -11,7 +11,7 @@ const AlphabetChart = () => {
     'Umbrella', 'Vase', 'Whale', 'Xylophone', 'Yak', 'Zebra'
   ];
   const handleNextClick = () => {
-    window.location = 'moduletwo/pronounciation';
+    window.location = 'moduletwo/quiz';
   };
   return (
     <div className={styles.alphabetChart}>

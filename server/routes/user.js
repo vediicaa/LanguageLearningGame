@@ -23,8 +23,6 @@ function authenticateToken(req, res, next) {
   
   // Example route to retrieve user data
   router.get('/', authenticateToken, (req, res) => {
-	// The token is valid; you can access user details from req.user
-	// In this example, we'll just send a sample response
 	const user = req.user;
 	res.status(200).json({ user });
   });

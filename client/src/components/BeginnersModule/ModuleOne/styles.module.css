@@ -1,28 +1,114 @@
-.memoryGame {
+/* styles.module.css */
+
+.game {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  font-family: Arial, sans-serif; /* Add a default font */
 }
 
-.timer {
-  margin: 20px;
-  font-size: 20px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  background-color: #fff; /* Add a background color */
+  border-radius: 10px; /* Round the corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  padding: 20px; /* Add some padding */
+}
+
+.items, .persons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Distribute items evenly */
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow the items to wrap onto the next line */
+  margin-bottom: 20px; /* Add some space below each row */
+}
+
+.items div, .persons div {
+  width: 220px;
+  height: 250px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+  border-radius: 10px; /* Round the corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
+  margin: 10px; /* Add some space around each card */
+  overflow: hidden; /* Ensure the content fits within the card */
+}
+
+.items img, .persons img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the image covers the entire card */
+}
+
+.persons div {
+  position: relative;
+}
+
+.persons div::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 255, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.persons div:hover::after {
+  opacity: 1;
+}
+
+.sentence {
+  font-size: 2em;
   font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; /* Center the text */
 }
 
-.imageCards {
+.images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-around;
 }
 
-.imageCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.images > div:not(.timer) {
+  flex-basis: 200px; /* Adjust this value to change the width of the cards */
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-.quiz {
-  margin-top: 20px;
+.images img {
+  width: 100%;
+  height: auto;
+}
+
+.images p {
+  font-size: 1em;
+  color: #333;
+}
+
+/* styles.module.css */
+
+.timer {
+  font-size: 2em; /* Increase the font size */
+  font-weight: bold; /* Make the font bold */
+  color: #333; /* Set the color */
+  order: -1;
+  margin-bottom: 20px;
 }

@@ -7,9 +7,10 @@ import LanguageSelection from "./pages/LanguageSelection";
 import EnglishLearningPage from "./pages/EnglishLearningPage/index.jsx";
 import Level from "./pages/EnglishLearningPage/Level.jsx";
 import Beginner from "./pages/EnglishLearningPage/Beginner.jsx";
-import ModuleoneBeginner from "./components/BeginnersModule/ModuleOne";
-import ModuletwoBeginner from "./components/BeginnersModule/ModuleTwo";
+import ModuleoneBeginner from "./components/BeginnersModule/ModuleOne/index.jsx";
+import ModuletwoBeginner from "./components/BeginnersModule/ModuleTwo/index.jsx";
 import PronunciationPractice from './components/BeginnersModule/ModuleTwo/Pronounciation.jsx';
+import Flashcard from './components/BeginnersModule/ModuleThree/Flashcards.jsx';
 import ModulethreeBeginner from "./components/BeginnersModule/ModuleThree";
 import ModulefourBeginner from "./components/BeginnersModule/ModuleFour";
 import SpanishLearningPage from "./pages/SpanishLearningPage";
@@ -55,12 +56,16 @@ function App() {
 				element={user ? <ModuletwoBeginner/> : <Navigate  to="../login" />}
 			/>
 			<Route
-				path="/english/beginner/moduletwo/pronounciation"
+				path="/english/beginner/moduletwo/quiz"
 				element={user ? <PronunciationPractice/> : <Navigate  to="../login" />}
 			/>
 			<Route
 				path="/english/beginner/modulethree"
 				element={user ? <ModulethreeBeginner/> : <Navigate  to="../login" />}
+			/>
+			<Route
+				path="/english/beginner/modulethree/flashcards"
+				element={user ? <Flashcard/> : <Navigate  to="../login" />}
 			/>
 			<Route
 				path="/english/beginner/modulefour"

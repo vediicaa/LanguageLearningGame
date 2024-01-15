@@ -3,7 +3,7 @@ import Speech from 'react-speech';
 import styles from './Pronounciation.module.css'
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
-
+import Sidebar from '../../Sidebar';
 const Pronounciation = () => {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
   const [currentLetter, setCurrentLetter] = useState('');
@@ -25,12 +25,10 @@ const Pronounciation = () => {
         tempOptions.push(randomLetter);
       }
     }
-    // Shuffle the options
-    tempOptions.sort(() => Math.random() - 0.5);
+    
     setOptions(tempOptions);
   };
 
-  // On component mount, generate the first letter and options
   useEffect(() => {
     const firstLetter = generateRandomLetter();
     setCurrentLetter(firstLetter);
@@ -40,12 +38,12 @@ const Pronounciation = () => {
   const handleOptionClick = (letter) => {
     if (letter === currentLetter) {
       alert('Correct!');
-      setTurns(turns + 1); // Add this line
-      if (turns >= 5) { // Add this line
+      setTurns(turns + 1); 
+      if (turns >= 5) { 
         alert('Quiz completed!');
-        return; // Add this line
+        return; 
       }
-      // Generate a new letter and options
+    
       const nextLetter = generateRandomLetter();
       setCurrentLetter(nextLetter);
       generateOptions(nextLetter);
@@ -55,10 +53,15 @@ const Pronounciation = () => {
   };
 
   return (
-    <div className={styles.alphabetQuiz}>
-      <Navbar/>
+    <div>
+       <Navbar/>
+       <Sidebar/>
+          <div className={styles.alphabetQuiz}>
       <h1>Alphabet Quiz</h1>
-      <Speech text={currentLetter} textAsButton={true} displayText="Play" />
+      <h3>This module tests your hearing skills press on play to hear the alphabet!</h3>
+      <div className={styles.playButton}>
+        <Speech text={currentLetter} textAsButton={true} displayText="Play" />
+      </div>
       {options.map((letter, index) => (
         <button key={index} className={styles.button}
           onClick={() => handleOptionClick(letter)}>
@@ -66,6 +69,7 @@ const Pronounciation = () => {
         </button>
       ))}
       <Footer/>
+    </div>
     </div>
   );
 };

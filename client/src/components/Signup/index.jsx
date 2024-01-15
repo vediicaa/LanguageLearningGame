@@ -21,10 +21,10 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://trial3-production.up.railway.app/api/user";
+			const url = "http://localhost:8080/api/user";
 			const { data: res } = await axios.post(url, data);
 			navigate("/login");
-			console.log(res.message);
+			console.log(res.message);  //User Created Successfully
 		} catch (error) {
 			if (
 				error.response &&
@@ -86,7 +86,7 @@ const Signup = () => {
 							required
 							className={styles.input}
 						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
+						{error && <div className={styles.error_msg}>{error}</div>} 
 						<button type="submit" className={styles.green_btn}>
 							Sign Up
 						</button>

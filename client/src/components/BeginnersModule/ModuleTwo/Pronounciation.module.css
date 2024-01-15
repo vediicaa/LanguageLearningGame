@@ -1,25 +1,38 @@
-/* pronunciation.module.css */
-
 .alphabetQuiz {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .alphabetQuiz button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    cursor: pointer;
-  }
-  
-  .alphabetQuiz button:hover {
-    background-color: #45a049; /* Darker green */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alphabetQuiz h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.alphabetQuiz button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #007BFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.alphabetQuiz button:hover {
+  background-color: #0056b3;
+}
+.playButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #007BFF; /* Adjust as needed */
+}
+

@@ -10,8 +10,8 @@ function LanguageSelection() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
 
   useEffect(() => {
-    // Make an API request to fetch the list of available languages from the server
-    axios.get('https://trial3-production.up.railway.app/api/language') // Adjust the API endpoint URL
+    
+    axios.get('http://localhost:8080/api/language') 
       .then((response) => {
         console.log("received languages");
       setLanguages(response.data);
@@ -28,7 +28,7 @@ function LanguageSelection() {
   const handleStartLearning = () => {
     if(selectedLanguage === 'English')
     {
-      window.location = '/english/Level';
+      window.location = '/english';
     }
     if(selectedLanguage === 'Spanish')
     {
@@ -51,7 +51,7 @@ function LanguageSelection() {
     <div>
     <Navbar/>
   
-  <div class={styles.mainContainer}>
+  <div className={styles.mainContainer}>
     <div className={styles.container}>
       <h1>Select a Language</h1>
       <ul className={styles.languageList}>

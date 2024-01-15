@@ -1,0 +1,16 @@
+.preposition {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+    width: 80%; /* Adjust as needed */
+}

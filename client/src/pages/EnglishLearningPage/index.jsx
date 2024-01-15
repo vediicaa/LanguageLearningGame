@@ -23,7 +23,7 @@ function LearnEnglishPage() {
   useEffect(() => {
     //fetching user's current rating email and unique id
     axios
-      .get("https://trial3-production.up.railway.app/api/auth", {
+      .get("http://localhost:8080/api/auth", {
         headers: {
           Authorization: `Bearer ${storedToken}`,
         },
@@ -44,7 +44,7 @@ function LearnEnglishPage() {
   const updateRating = (newRating) => {
     // Make an API call to update the user's rating
     axios
-      .put("https://trial3-production.up.railway.app/api/ratingEng", { userEmail, newRating })
+      .put("http://localhost:8080/api/ratingEng", { userEmail, newRating })
       .then((response) => {
         console.log("User rating updated successfully");
       })
@@ -55,16 +55,21 @@ function LearnEnglishPage() {
 
   const fetchQuestion = (userId, rating) => {
     axios
-      .get(`https://trial3-production.up.railway.app/api/questions/${userId}/${rating}`)
+      .get(`http://localhost:8080/api/questions/${userId}/${rating}`)
       .then((response) => {
         const questionData = response.data.question;
-        setQuestion(questionData);
+        if (!questionData) { // If no more questions
+          window.location = 'english/beginner';; // Redirect to beginner's level page
+        } else {
+          setQuestion(questionData);
+        }
       })
       .catch((error) => {
         console.error("Error fetching question:", error);
         setQuestion(null);
       });
   };
+  ;
 
   const handleUserResponse = (selectedOption) => {
     // Get the current question

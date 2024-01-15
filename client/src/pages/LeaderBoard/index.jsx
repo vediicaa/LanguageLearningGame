@@ -10,7 +10,7 @@ const Leaderboard = () => {
 
   useEffect(() => {
     // Fetch the leaderboard data when the component mounts
-    axios.get('https://trial3-production.up.railway.app/api/leaderboard')
+    axios.get('http://localhost:8080/api/leaderboard')
       .then(response => {
         setUsers(response.data);
       })

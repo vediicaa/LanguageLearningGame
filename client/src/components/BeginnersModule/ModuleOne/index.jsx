@@ -1,104 +1,144 @@
+// MemoryGame.js
 import React, { useState, useEffect } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DraggableItem from './DraggableItem';
 import DroppableContainer from './DroppableContainer';
-import styles from './styles.module.css';
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
+import style from './styles.module.css';
+import Sidebar from '../../Sidebar';
+import axios from 'axios';
 
 const MemoryGame = () => {
-  const [timer, setTimer] = useState(120);
+  const [sentence, setSentence] = useState('');
+  const [ansItem, setAnsItem] = useState('');
+  const [ansPerson, setAnsPerson] = useState('');
+  const [items, setItems] = useState([]);
+  const [droppedItems, setDroppedItems] = useState([]);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [imageSet, setImageSet] = useState(0);
+  const [timer, setTimer] = useState(5);
+  const [images, setImage] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [data, setData] = useState([]);
 
-  const handleDrop = (item) => {
-    console.log(`Dropped item with id ${item.id}`);
-    if(exerciseSolved(item.id))
+  useEffect(() => {
+    
+    const fetchItems = async() =>{
+      try{
+        const response = await axios.get('http://localhost:8080/api/moduleOne');
+        console.log(response.data);
+        setData(response.data);
+      }
+      catch(error)
+      {
+        console.error('Failed to fetch items:', error);
+      }
+    };
+
+    fetchItems();
+  }, []);
+
+  useEffect(()=>{
+    if(currentIndex < data.length)
     {
+      const currentItem = data[currentIndex];
+      setItems(currentItem.items);
+      setSentence(currentItem.sentence);
+      setImage(currentItem.images);
+      setAnsPerson(currentItem.ansPerson);
+      setAnsItem(currentItem.ansItem);
+
+    }
+    else
+    {
+      console.log('questions finished');
+    }
+  },[currentIndex]);
+
+
+  const nextItem = ()=>{
+    setCurrentIndex(currentIndex+1);
+  };
+  
+  //setting up a repeating function to update the state of the timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => prevTimer > 0 ? prevTimer - 1 : 0);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (timer === 0) {
+      setShowQuiz(true);
+    }
+  }, [timer]);
+
+  const handleDrop = (item, person) => {
+    console.log(item);
+    console.log(person);
+    setDroppedItems([...droppedItems, { ...item, person }]);
+    checkAnswer(item, person);
+  };
+
+  const checkAnswer = (item, person) => {
+    console.log(item);
+    console.log(person);
+    if (item.name === ansItem && person === ansPerson) {
+      alert('Correct!');
       setShowQuiz(false);
-      setImageSet(imageSet+1);
       setTimer(120);
+      nextItem();
+    } else {
+      alert('Try again!');
     }
   };
 
-  const exerciseSolved= (id)=>{
-    if(id) return true;
-    else return false;
-  };
-
-  const imageSets = [
-    [{ id: 1, name: 'Image 1', src: 'path/to/image1' },
-    { id: 2, name: 'Image 2', src: 'path/to/image2' },
-    { id: 3, name: 'Image 3', src: 'path/to/image2' },
-    { id: 4, name: 'Image 4', src: 'path/to/image2' },
-    { id: 5, name: 'Image 5', src: 'path/to/image2' },
-    { id: 6, name: 'Image 6', src: 'path/to/image2' }
-  ],
-  [
-    { id: 7, name: 'Image 1', src: 'path/to/image1' },
-    { id: 8, name: 'Image 2', src: 'path/to/image2' },
-    { id: 9, name: 'Image 3', src: 'path/to/image2' },
-    { id: 10, name: 'Image 4', src: 'path/to/image2' },
-    { id: 11, name: 'Image 5', src: 'path/to/image2' },
-    { id: 12, name: 'Image 6', src: 'path/to/image2' }
-  ],
-  [
-    { id: 13, name: 'Image 1', src: 'path/to/image1' },
-    { id: 14, name: 'Image 2', src: 'path/to/image2' },
-    { id: 15, name: 'Image 3', src: 'path/to/image2' },
-    { id: 16, name: 'Image 4', src: 'path/to/image2' },
-    { id: 17, name: 'Image 5', src: 'path/to/image2' },
-    { id: 18, name: 'Image 6', src: 'path/to/image2' }
-  ]
-];
-   
-  useEffect(() => {
-    const countdown = setInterval(() => {
-      if (timer > 0) {
-        setTimer(timer - 1);
-      } else {
-        setShowQuiz(true);
-        clearInterval(countdown);
-      }
-    }, 100);
-    return () => clearInterval(countdown);
-  }, [timer]);
-
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className={styles.memoryGame}>
-        <Navbar/>
-        <div className={styles.timer}>Time remaining: {timer} seconds</div>
-        {imageSet < imageSets.length ? (
-          !showQuiz ? (
-            <div className={styles.imageCards}>
-              {imageSets[imageSet].map((image) => (
-                <div key={image.id} className={styles.imageCard}>
-                  <img src={image.src} alt={image.name} />
-                  <div>{image.name}</div>
-                </div>
+      <div>
+      <Navbar/>
+       <Sidebar/>
+       <div className={style.game}>
+        {showQuiz ? (
+          <div className={style.container}>
+            <div className={style.items}>
+              <p>Hello</p>
+              {items.filter(item => item.type === 'item').map((item) => (
+                <DraggableItem key={item.id} id={item.id} name={item.name} src={item.src} />
               ))}
             </div>
-          ) : (
-            <div className={styles.quiz}>
-              {imageSets[imageSet].map((image) => (
-                <DraggableItem key={image.id} id={image.id} name={image.name} />
+            <h1 className={style.sentence}>{sentence}</h1>
+            <div className={style.persons}>
+              {items.filter(item => item.type === 'person').map((person) => (
+                <DroppableContainer key={person.id} accept="item" onDrop={(item) => handleDrop(item, person.name)}>
+                  <img src={person.src} alt={person.name} />
+                </DroppableContainer>
               ))}
-              <DroppableContainer accept="item" onDrop={handleDrop}>
-                Drop items here
-              </DroppableContainer>
             </div>
-          )
-        ) : (
-          <div className={styles.completionMessage}>
-            Exercise completed! Great job!
           </div>
+        ) : (
+          <div>
+            <div className={style.timer}>Time remaining: {timer} seconds</div>
+           
+          <div className={style.images}>               
+            {images.map((image, index) => (
+              <div key={index}>
+                <img src={image.src} alt={image.caption} />
+                <p>{image.caption}</p>
+                <p>hello</p>
+              </div>
+            ))}
+          </div>
+          </div>
+          
         )}
-        <Footer/>
+      </div>
+      <Footer/>
       </div>
     </DndProvider>
-  );  
+  );
 };
 
 export default MemoryGame;
